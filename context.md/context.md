@@ -200,3 +200,18 @@ Pateikti pilną atnaujinto failo kodą.
 Pateikti trumpą instrukciją, kaip patikrinti pakeitimus.
 
 Pagrindinis tikslas – kad vartotojas galėtų pateiktą kodą tiesiogiai nukopijuoti į projektą ir jį paleisti.
+
+## 11. Profilio puslapio MVP
+
+Programėlėje įgyvendintas naudotojo profilio puslapis, pasiekiamas iš kuro skaičiuoklės antraštėje esančio mygtuko „Profilis“. Kadangi projekte nenaudojamas maršrutizatorius, profilio ir skaičiuoklės vaizdai perjungiami programėlės būsena.
+
+Profilio puslapyje yra:
+
+- Hero kortelė su apskritu avataru, naudotojo vardu, el. paštu ir žymomis „Vairuotojas“ bei „Aktyvus narys“. Kol vardas neįvestas, rodomas pavyzdinis vardas „Jonas Jonaitis“.
+- Veiklos statistika su pavyzdinėmis reikšmėmis: 12 skaičiavimų, 1 450 km ir mėgstamiausias kuras – dyzelinas. Šie duomenys yra demonstraciniai.
+- Numatytojų nuostatų forma: kuro sąnaudos (l/100 km; leidžiama reikšmė nuo 0,1 iki 100) ir pageidaujama EUR arba USD valiuta. Išsaugojus parodomas patvirtinimo pranešimas. MVP nuostatos saugomos tik komponento būsenoje ir nėra išsaugomos serveryje ar naršyklės saugykloje.
+- Profilio forma vardui ir telefono numeriui atnaujinti; el. paštas rodomas tik skaitymui.
+
+**Failai:** `src/pages/Profile.jsx`, `src/pages/Profile.css`, `src/App.jsx`, `src/components/FuelCalculator.jsx` ir `src/components/FuelCalculator.css`.
+
+Sąsaja pritaikyta siauriems ekranams: statistikos kortelės išdėstomos vertikaliai, formos laukai telpa viename stulpelyje, o profilio antraštės mygtukai išdėstomi vienas po kitu. Gamybinis build (`npm run build`) ir ESLint patikra (`npm run lint`) sėkmingai įvykdyti po profilio pakeitimų.
