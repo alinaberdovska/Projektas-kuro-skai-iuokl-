@@ -24,7 +24,7 @@ function formatQuantity(value, suffix) {
   })} ${suffix}`;
 }
 
-function FuelCalculator({ userEmail, onLogout }) {
+function FuelCalculator({ userEmail, onLogout, onProfile }) {
   const [distanceKm, setDistanceKm] = useState('');
   const [consumption, setConsumption] = useState('');
   const [fuelType, setFuelType] = useState('Benzinas');
@@ -91,9 +91,14 @@ function FuelCalculator({ userEmail, onLogout }) {
               <h1>Kuro skaičiuoklė</h1>
             </div>
           </div>
-          <button type="button" className="fuel-logout" onClick={onLogout}>
-            Atsijungti
-          </button>
+          <div className="fuel-header-actions">
+            <button type="button" className="fuel-profile" onClick={onProfile}>
+              Profilis
+            </button>
+            <button type="button" className="fuel-logout" onClick={onLogout}>
+              Atsijungti
+            </button>
+          </div>
         </div>
         <p className="fuel-subtitle">
           {userEmail

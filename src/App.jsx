@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import FuelCalculator from './components/FuelCalculator';
+import Profile from './pages/Profile';
 import './App.css';
 
 function App() {
@@ -8,21 +9,44 @@ function App() {
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedInEmail, setLoggedInEmail] = useState('');
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [profile, setProfile] = useState({ name: '', phone: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login submitted:', { email, password, rememberMe });
     setLoggedInEmail(email);
+    setProfile({ name: '', phone: '' });
+    setIsProfileOpen(false);
     setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     setLoggedInEmail('');
+    setIsProfileOpen(false);
   };
 
   if (isLoggedIn) {
-    return <FuelCalculator userEmail={loggedInEmail} onLogout={handleLogout} />;
+    if (isProfileOpen) {
+      return (
+        <Profile
+          email={loggedInEmail}
+          profile={profile}
+          onSave={setProfile}
+          onBack={() => setIsProfileOpen(false)}
+          onLogout={handleLogout}
+        />
+      );
+    }
+
+    return (
+      <FuelCalculator
+        userEmail={loggedInEmail}
+        onLogout={handleLogout}
+        onProfile={() => setIsProfileOpen(true)}
+      />
+    );
   }
 
   return (
