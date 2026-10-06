@@ -18,11 +18,18 @@ function formatNumber(value, suffix) {
   })} ${suffix}`;
 }
 
+function formatQuantity(value, suffix) {
+  return `${value.toLocaleString('lt-LT', {
+    maximumFractionDigits: 2,
+  })} ${suffix}`;
+}
+
 function FuelCalculator({ userEmail, onLogout }) {
   const [distanceKm, setDistanceKm] = useState('');
   const [consumption, setConsumption] = useState('');
   const [fuelType, setFuelType] = useState('Benzinas');
   const [price, setPrice] = useState('');
+  const [peopleCount, setPeopleCount] = useState('4');
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
 
@@ -32,6 +39,7 @@ function FuelCalculator({ userEmail, onLogout }) {
     const parsedDistance = parsePositiveNumber(distanceKm);
     const parsedConsumption = parsePositiveNumber(consumption);
     const parsedPrice = parsePositiveNumber(price);
+    const parsedPeopleCount = Number(peopleCount);
 
     if (!parsedDistance) {
       setResult(null);
@@ -51,6 +59,12 @@ function FuelCalculator({ userEmail, onLogout }) {
       return;
     }
 
+    if (!Number.isInteger(parsedPeopleCount) || parsedPeopleCount <= 0) {
+      setResult(null);
+      setError('Įveskite bent 1 kelionės dalyvį.');
+      return;
+    }
+
     setError('');
     setResult({
       ...calculateTripFuel({
@@ -59,6 +73,8 @@ function FuelCalculator({ userEmail, onLogout }) {
         pricePerLiter: parsedPrice,
       }),
       fuelType,
+      distanceKm: parsedDistance,
+      peopleCount: parsedPeopleCount,
     });
   };
 
@@ -145,6 +161,20 @@ function FuelCalculator({ userEmail, onLogout }) {
             />
           </div>
 
+          <div className="fuel-form-group">
+            <label htmlFor="peopleCount">Žmonių skaičius</label>
+            <input
+              id="peopleCount"
+              type="number"
+              inputMode="numeric"
+              min="1"
+              step="1"
+              value={peopleCount}
+              onChange={(e) => setPeopleCount(e.target.value)}
+              required
+            />
+          </div>
+
           {error ? <p className="fuel-error">{error}</p> : null}
 
           <button type="submit" className="fuel-btn">
@@ -154,13 +184,31 @@ function FuelCalculator({ userEmail, onLogout }) {
 
         {result ? (
           <div className="fuel-results">
-            <div className="fuel-result-card">
-              <span className="fuel-result-label">Reikės kuro</span>
-              <div className="fuel-result-value">{formatNumber(result.fuelLiters, 'l')}</div>
+            <div className="fuel-result-heading">
+              <span className="fuel-result-icon" aria-hidden="true">🚗</span>
+              <div>
+                <span className="fuel-result-label">Kelionės atstumas</span>
+                <div className="fuel-result-distance">
+                  {formatQuantity(result.distanceKm, 'km')}
+                </div>
+              </div>
+              <span className="fuel-result-type">{result.fuelType}</span>
             </div>
-            <div className="fuel-result-card">
-              <span className="fuel-result-label">Kelionės kaina</span>
-              <div className="fuel-result-value">{formatNumber(result.totalCost, '€')}</div>
+            <div className="fuel-result-stats">
+              <div className="fuel-result-card">
+                <span className="fuel-result-label">Reikės kuro</span>
+                <div className="fuel-result-value">{formatQuantity(result.fuelLiters, 'l')}</div>
+              </div>
+              <div className="fuel-result-card">
+                <span className="fuel-result-label">Kelionės kaina</span>
+                <div className="fuel-result-value">💶 {formatNumber(result.totalCost, '€')}</div>
+              </div>
+              <div className="fuel-result-card fuel-result-share">
+                <span className="fuel-result-label">Vienam žmogui</span>
+                <div className="fuel-result-value">
+                  👤 {formatNumber(result.totalCost / result.peopleCount, '€')}
+                </div>
+              </div>
             </div>
           </div>
         ) : null}
