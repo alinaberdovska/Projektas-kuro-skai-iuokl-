@@ -5,6 +5,9 @@ function Profile({ email, profile, onSave, onBack, onLogout }) {
   const [name, setName] = useState(profile.name);
   const [phone, setPhone] = useState(profile.phone);
   const [message, setMessage] = useState('');
+  const [defaultConsumption, setDefaultConsumption] = useState('7.5');
+  const [currency, setCurrency] = useState('EUR');
+  const [preferencesMessage, setPreferencesMessage] = useState('');
 
   const initials = name.trim()
     ? name.trim().split(/\s+/).slice(0, 2).map((part) => part[0]).join('').toLocaleUpperCase('lt-LT')
@@ -15,6 +18,11 @@ function Profile({ email, profile, onSave, onBack, onLogout }) {
     event.preventDefault();
     onSave({ name: name.trim(), phone: phone.trim() });
     setMessage('Profilio pakeitimai išsaugoti.');
+  };
+
+  const handlePreferencesSubmit = (event) => {
+    event.preventDefault();
+    setPreferencesMessage('Numatytosios nuostatos išsaugotos.');
   };
 
   return (
@@ -69,6 +77,54 @@ function Profile({ email, profile, onSave, onBack, onLogout }) {
               <p className="profile-stat-value">Dyzelinas</p>
             </article>
           </div>
+        </section>
+
+        <section className="profile-preferences" aria-labelledby="profile-preferences-title">
+          <div className="profile-section-heading">
+            <div>
+              <p className="profile-kicker">Programėlė</p>
+              <h2 id="profile-preferences-title">Numatytosios nuostatos</h2>
+            </div>
+          </div>
+          <form className="preferences-form" onSubmit={handlePreferencesSubmit}>
+            <div className="preferences-fields">
+              <div className="profile-field">
+                <label htmlFor="default-consumption">Numatytosios kuro sąnaudos (l/100 km)</label>
+                <input
+                  id="default-consumption"
+                  type="number"
+                  min="0.1"
+                  max="100"
+                  step="0.1"
+                  inputMode="decimal"
+                  value={defaultConsumption}
+                  onChange={(event) => {
+                    setDefaultConsumption(event.target.value);
+                    setPreferencesMessage('');
+                  }}
+                  required
+                />
+              </div>
+              <div className="profile-field">
+                <label htmlFor="preferred-currency">Pageidaujama valiuta</label>
+                <select
+                  id="preferred-currency"
+                  value={currency}
+                  onChange={(event) => {
+                    setCurrency(event.target.value);
+                    setPreferencesMessage('');
+                  }}
+                >
+                  <option value="EUR">EUR (€)</option>
+                  <option value="USD">USD ($)</option>
+                </select>
+              </div>
+            </div>
+            <div className="preferences-footer" aria-live="polite">
+              <p className="profile-message">{preferencesMessage}</p>
+              <button type="submit" className="profile-save">Išsaugoti nuostatas</button>
+            </div>
+          </form>
         </section>
 
         <form className="profile-form" onSubmit={handleSubmit}>
