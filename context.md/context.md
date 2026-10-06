@@ -6,6 +6,16 @@ Kuro Skaičiuoklė – pirmasis projekto etapas, kuriamas naudojant React ir Vit
 
 Projekto kodas turi būti paprastas, aiškus ir lengvai prižiūrimas. Atliekant pakeitimus svarbiausia išlaikyti esamą funkcionalumą ir projekto struktūrą.
 
+Esamos naudotojo sąsajos galimybės:
+
+- Prisijungimo forma su el. pašto ir slaptažodžio laukais.
+- Kuro sąnaudų skaičiuoklė: kelionės atstumas, sąnaudos, kuro rūšis ir ranka įrašoma kuro litro kaina.
+- Kuro rūšys: benzinas, dyzelinas, LPG arba pasirinktinė kuro rūšis / kaina.
+- Kelionės dalyvių skaičius (numatytoji reikšmė – 4) ir išlaidų vienam žmogui skaičiavimas.
+- Rezultatuose rodomas kelionės atstumas, reikalingas kuro kiekis, bendra kelionės kaina ir kaina vienam žmogui.
+
+Kuro kainos nėra gaunamos automatiškai: jas įveda naudotojas.
+
 2. Technologijos
 
 Projektas naudoja:
@@ -54,48 +64,34 @@ Nekurti naujų aplankų ar failų struktūros be aiškios priežasties.
 
 4. UI ir vizualinis stilius
 
-Projekte naudojama moderni tamsi / Indigo vizualinė tema.
+Projekte naudojama šviesi indigo / mėlyna vizualinė tema.
 
 Pagrindiniai principai
 
-Tamsus aplikacijos fonas.
-
-Skaidrios kortelės su stiklo efektu.
-
-Naudoti backdrop-filter: blur(...).
-
-Modernūs, minimalistiniai UI elementai.
-
-Užapvalinti kampai.
-
-Subtilūs šešėliai.
-
-Aiški vizualinė hierarchija.
+- Šviesus aplikacijos fonas su švelniais indigo ir mėlynais gradientais.
+- Baltos arba šviesios, skaidrios kortelės su stiklo efektu.
+- Naudoti backdrop-filter: blur(...), kai jis tinka kortelės fonui.
+- Modernūs, minimalistiniai UI elementai, aiški vizualinė hierarchija ir subtilūs šešėliai.
+- Užapvalinti kampai (dažniausiai 10–24 px).
+- Sąsaja turi būti patogi kompiuteryje ir mobiliuosiuose įrenginiuose.
 
 Pagrindiniai akcentų atspalviai
 
-#4f46e5
-#6366f1
-#0ea5e9
-#312e81
+- Indigo: #4f46e5, #6366f1
+- Mėlyna: #0ea5e9
+- Šviesūs fonai: #f8fafc, #eef2ff, #dbeafe
 
 Tekstas
 
-Pagrindinis tekstas turi būti šviesus.
-
-Pagalbiniam tekstui galima naudoti:
-
-#64748b
-#9ca3af
+- Ant šviesaus fono naudoti tamsų pagrindinį tekstą (#0f172a arba #334155).
+- Pagalbiniam tekstui naudoti įskaitomą pilkai mėlyną spalvą (#64748b).
+- Ant tamsių akcentinių mygtukų naudoti baltą tekstą.
 
 Formos ir kortelės
 
-Naudoti maždaug:
-
-border-radius: 10px - 20px;
-box-shadow: ...;
-
-UI turi išlikti švarus, neperkrautas ir patogus naudoti tiek kompiuteryje, tiek mobiliuosiuose įrenginiuose.
+- Įvesties laukams naudoti baltą arba beveik baltą foną, pilkai mėlyną kraštinę ir aiškų indigo fokusavimo žymėjimą.
+- Rezultatų kortelę išskirti švelniu indigo fonu ir tamsiu, įskaitomu tekstu.
+- Išlaikyti saikingą border-radius ir box-shadow.
 
 5. Kalba
 
