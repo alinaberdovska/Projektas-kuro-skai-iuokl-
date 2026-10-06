@@ -1,16 +1,29 @@
 import { useState } from 'react';
+import FuelCalculator from './components/FuelCalculator';
 import './App.css';
 
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInEmail, setLoggedInEmail] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login submitted:', { email, password, rememberMe });
-    alert(`Sveiki sugrįžę, ${email}!`);
+    setLoggedInEmail(email);
+    setIsLoggedIn(true);
   };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setLoggedInEmail('');
+  };
+
+  if (isLoggedIn) {
+    return <FuelCalculator userEmail={loggedInEmail} onLogout={handleLogout} />;
+  }
 
   return (
     <div className="login-container">
