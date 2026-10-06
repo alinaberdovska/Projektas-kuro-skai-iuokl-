@@ -21,6 +21,7 @@ function formatNumber(value, suffix) {
 function FuelCalculator({ userEmail, onLogout }) {
   const [distanceKm, setDistanceKm] = useState('');
   const [consumption, setConsumption] = useState('');
+  const [fuelType, setFuelType] = useState('Benzinas');
   const [price, setPrice] = useState('');
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
@@ -51,13 +52,14 @@ function FuelCalculator({ userEmail, onLogout }) {
     }
 
     setError('');
-    setResult(
-      calculateTripFuel({
+    setResult({
+      ...calculateTripFuel({
         distanceKm: parsedDistance,
         consumptionPer100km: parsedConsumption,
         pricePerLiter: parsedPrice,
       }),
-    );
+      fuelType,
+    });
   };
 
   return (
@@ -84,6 +86,20 @@ function FuelCalculator({ userEmail, onLogout }) {
         </p>
 
         <form onSubmit={handleSubmit}>
+          <div className="fuel-form-group">
+            <label htmlFor="fuelType">Kuro rūšis</label>
+            <select
+              id="fuelType"
+              value={fuelType}
+              onChange={(e) => setFuelType(e.target.value)}
+            >
+              <option value="Benzinas">Benzinas</option>
+              <option value="Dyzelinas">Dyzelinas</option>
+              <option value="LPG">LPG</option>
+              <option value="Savo kaina">Kita kuro rūšis / savo kaina</option>
+            </select>
+          </div>
+
           <div className="fuel-form-group">
             <label htmlFor="distanceKm">Nuvažiuoti kilometrai</label>
             <input
@@ -122,7 +138,7 @@ function FuelCalculator({ userEmail, onLogout }) {
               inputMode="decimal"
               min="0"
               step="any"
-              placeholder="pvz. 1.59"
+              placeholder="Įrašykite kainą, pvz. 1,59"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
