@@ -364,8 +364,14 @@
     border-radius: 18px;
   }
 
-  .profile-back {
-    text-align: left;
+  .profile-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .profile-back,
+  .profile-logout {
+    width: 100%;
   }
 
   .profile-intro {
