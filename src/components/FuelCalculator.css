@@ -6,25 +6,25 @@
   padding: 24px;
   box-sizing: border-box;
   background:
-    radial-gradient(circle at top left, rgba(99, 102, 241, 0.35), transparent 42%),
-    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.28), transparent 40%),
-    linear-gradient(160deg, #0f172a 0%, #1e1b4b 55%, #312e81 100%);
+    radial-gradient(circle at top left, rgba(129, 140, 248, 0.3), transparent 42%),
+    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.22), transparent 40%),
+    linear-gradient(160deg, #f8fafc 0%, #eef2ff 55%, #dbeafe 100%);
   font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .fuel-card {
-  background: rgba(15, 23, 42, 0.55);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.86));
   padding: 36px 32px 32px;
   border-radius: 20px;
   box-shadow:
-    0 24px 50px rgba(15, 23, 42, 0.28),
-    0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+    0 24px 50px rgba(51, 65, 85, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset;
   width: 100%;
   max-width: 460px;
   box-sizing: border-box;
   text-align: left;
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.85);
 }
 
 .fuel-header {
@@ -60,12 +60,12 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6366f1;
+  color: #4f46e5;
 }
 
 .fuel-card h1 {
   margin: 0;
-  color: #f8fafc;
+  color: #0f172a;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -75,7 +75,7 @@
 .fuel-logout {
   background: transparent;
   border: 1px solid rgba(148, 163, 184, 0.35);
-  color: #cbd5e1;
+  color: #475569;
   border-radius: 10px;
   padding: 8px 12px;
   font-size: 13px;
@@ -90,7 +90,7 @@
 }
 
 .fuel-subtitle {
-  color: #9ca3af;
+  color: #64748b;
   font-size: 14px;
   margin: 12px 0 24px;
 }
@@ -103,7 +103,7 @@
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
-  color: #e2e8f0;
+  color: #334155;
   font-weight: 600;
 }
 
@@ -111,11 +111,11 @@
 .fuel-form-group select {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
   font-size: 14px;
-  color: #f8fafc;
-  background: rgba(15, 23, 42, 0.45);
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.78);
   box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
@@ -123,7 +123,7 @@
 .fuel-form-group select {
   appearance: none;
   cursor: pointer;
-  color-scheme: dark;
+  color-scheme: light;
   background-image: linear-gradient(45deg, transparent 50%, #a5b4fc 50%),
     linear-gradient(135deg, #a5b4fc 50%, transparent 50%);
   background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
@@ -132,21 +132,21 @@
 }
 
 .fuel-form-group select option {
-  color: #f8fafc;
-  background: #0f172a;
+  color: #0f172a;
+  background: #fff;
 }
 
 .fuel-form-group input:focus,
 .fuel-form-group select:focus {
   outline: none;
-  background: rgba(15, 23, 42, 0.7);
+  background: #fff;
   border-color: #6366f1;
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
 }
 
 .fuel-error {
   margin: 0 0 16px;
-  color: #fca5a5;
+  color: #b91c1c;
   font-size: 13px;
   font-weight: 600;
 }
@@ -177,8 +177,8 @@
   border: 1px solid rgba(129, 140, 248, 0.25);
   background:
     radial-gradient(circle at 100% 0%, rgba(79, 70, 229, 0.16), transparent 45%),
-    rgba(2, 6, 23, 0.3);
-  box-shadow: 0 12px 28px rgba(2, 6, 23, 0.18), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+    rgba(255, 255, 255, 0.66);
+  box-shadow: 0 12px 28px rgba(51, 65, 85, 0.1), 0 1px 0 #fff inset;
 }
 
 .fuel-result-heading {
@@ -186,7 +186,7 @@
   align-items: center;
   gap: 12px;
   padding: 2px 2px 15px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 .fuel-result-icon {
@@ -196,12 +196,12 @@
   height: 42px;
   flex: 0 0 auto;
   border-radius: 13px;
-  background: rgba(99, 102, 241, 0.16);
+  background: rgba(99, 102, 241, 0.1);
   font-size: 21px;
 }
 
 .fuel-result-distance {
-  color: #f8fafc;
+  color: #0f172a;
   font-size: 18px;
   font-weight: 750;
   letter-spacing: -0.3px;
@@ -210,9 +210,9 @@
 .fuel-result-type {
   margin-left: auto;
   padding: 5px 9px;
-  border: 1px solid rgba(165, 180, 252, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.22);
   border-radius: 999px;
-  color: #c7d2fe;
+  color: #4338ca;
   font-size: 11px;
   font-weight: 650;
 }
@@ -228,19 +228,19 @@
   min-width: 0;
   padding: 11px 9px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.045);
+  background: rgba(238, 242, 255, 0.8);
 }
 
 .fuel-result-label {
   display: block;
-  color: #9ca3af;
+  color: #64748b;
   font-size: 11px;
   font-weight: 600;
   margin-bottom: 6px;
 }
 
 .fuel-result-value {
-  color: #f8fafc;
+  color: #0f172a;
   font-size: 16px;
   overflow-wrap: anywhere;
   font-weight: 700;

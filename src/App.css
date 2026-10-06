@@ -15,9 +15,9 @@
   padding: 24px;
   box-sizing: border-box;
   background:
-    radial-gradient(circle at top left, rgba(99, 102, 241, 0.35), transparent 42%),
-    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.28), transparent 40%),
-    linear-gradient(160deg, #0f172a 0%, #1e1b4b 55%, #312e81 100%);
+    radial-gradient(circle at top left, rgba(129, 140, 248, 0.3), transparent 42%),
+    radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.22), transparent 40%),
+    linear-gradient(160deg, #f8fafc 0%, #eef2ff 55%, #dbeafe 100%);
   font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
@@ -26,20 +26,20 @@
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 100% 0%, rgba(99, 102, 241, 0.18), transparent 42%),
-    linear-gradient(145deg, rgba(30, 41, 59, 0.94), rgba(15, 23, 42, 0.88));
+    radial-gradient(ellipse at 100% 0%, rgba(129, 140, 248, 0.14), transparent 42%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.9));
   padding: 38px 34px 32px;
   border-radius: 24px;
   box-shadow:
-    0 28px 70px rgba(2, 6, 23, 0.48),
-    0 0 0 1px rgba(255, 255, 255, 0.13) inset,
-    0 0 50px rgba(79, 70, 229, 0.12);
+    0 28px 70px rgba(51, 65, 85, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.78) inset,
+    0 0 50px rgba(79, 70, 229, 0.1);
   width: 100%;
   max-width: 420px;
   box-sizing: border-box;
   text-align: left;
   backdrop-filter: blur(18px);
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   animation: card-arrive 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -90,12 +90,12 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #a5b4fc;
+  color: #4f46e5;
 }
 
 .login-card h1 {
   margin: 0;
-  color: #f8fafc;
+  color: #0f172a;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -103,7 +103,7 @@
 }
 
 .subtitle {
-  color: #a5b4c6;
+  color: #64748b;
   font-size: 14px;
   margin: 14px 0 26px;
   line-height: 1.55;
@@ -117,26 +117,26 @@
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
-  color: #e2e8f0;
+  color: #334155;
   font-weight: 600;
 }
 
 .form-group input {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
   font-size: 14px;
-  color: #f8fafc;
-  background: rgba(2, 6, 23, 0.3);
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.78);
   box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .form-group input:focus {
   outline: none;
-  background: rgba(15, 23, 42, 0.72);
-  border-color: #818cf8;
+  background: #fff;
+  border-color: #6366f1;
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
 }
 
@@ -152,12 +152,12 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #cbd5e1;
+  color: #475569;
   cursor: pointer;
 }
 
 .forgot-password {
-  color: #a5b4fc;
+  color: #4f46e5;
   text-decoration: none;
   font-weight: 600;
 }
@@ -196,11 +196,11 @@
   margin-top: 22px;
   text-align: center;
   font-size: 14px;
-  color: #a5b4c6;
+  color: #64748b;
 }
 
 .login-footer a {
-  color: #a5b4fc;
+  color: #4f46e5;
   text-decoration: none;
   font-weight: 600;
 }
