@@ -8,7 +8,8 @@ function Profile({ email, profile, onSave, onBack, onLogout }) {
 
   const initials = name.trim()
     ? name.trim().split(/\s+/).slice(0, 2).map((part) => part[0]).join('').toLocaleUpperCase('lt-LT')
-    : (email[0] || 'V').toLocaleUpperCase('lt-LT');
+    : 'JJ';
+  const displayName = name.trim() || 'Jonas Jonaitis';
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,10 +31,16 @@ function Profile({ email, profile, onSave, onBack, onLogout }) {
 
         <div className="profile-intro">
           <div className="profile-avatar" aria-hidden="true">{initials}</div>
-          <div>
+          <div className="profile-identity">
             <p className="profile-kicker">Paskyros nustatymai</p>
-            <h1 id="profile-title">Mano profilis</h1>
-            <p className="profile-subtitle">Tvarkykite savo paskyros informaciją.</p>
+            <h1 id="profile-title">{displayName}</h1>
+            <p className="profile-subtitle">{email || 'jonas@example.com'}</p>
+            <div className="profile-badges" aria-label="Paskyros būsena">
+              <span className="profile-badge">Vairuotojas</span>
+              <span className="profile-badge profile-badge-active">
+                <span className="profile-status-dot" aria-hidden="true" /> Aktyvus narys
+              </span>
+            </div>
           </div>
         </div>
 
