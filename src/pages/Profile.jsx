@@ -44,6 +44,33 @@ function Profile({ email, profile, onSave, onBack, onLogout }) {
           </div>
         </div>
 
+        <section className="profile-stats" aria-labelledby="profile-stats-title">
+          <div className="profile-section-heading">
+            <div>
+              <p className="profile-kicker">Jūsų aktyvumas</p>
+              <h2 id="profile-stats-title">Kelionių statistika</h2>
+            </div>
+            <span className="profile-stats-period">Viso laiko</span>
+          </div>
+          <div className="profile-stats-grid">
+            <article className="profile-stat-card">
+              <span className="profile-stat-icon" aria-hidden="true">#</span>
+              <p className="profile-stat-label">Atlikta skaičiavimų</p>
+              <p className="profile-stat-value">12 <span>skaičiavimų</span></p>
+            </article>
+            <article className="profile-stat-card">
+              <span className="profile-stat-icon profile-stat-icon-blue" aria-hidden="true">↗</span>
+              <p className="profile-stat-label">Apskaičiuotas atstumas</p>
+              <p className="profile-stat-value">1 450 <span>km</span></p>
+            </article>
+            <article className="profile-stat-card">
+              <span className="profile-stat-icon profile-stat-icon-cyan" aria-hidden="true">⛽</span>
+              <p className="profile-stat-label">Mėgstamiausias kuras</p>
+              <p className="profile-stat-value">Dyzelinas</p>
+            </article>
+          </div>
+        </section>
+
         <form className="profile-form" onSubmit={handleSubmit}>
           <div className="profile-field">
             <label htmlFor="profile-name">Vardas ir pavardė</label>
